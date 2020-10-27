@@ -35,7 +35,7 @@ public class EventDto {
 	public Time getStartTime() {
 		return startTime;
 	}
-
+//Added a short comment
 	public Time getEndTime() {
 		return endTime;
 	}
