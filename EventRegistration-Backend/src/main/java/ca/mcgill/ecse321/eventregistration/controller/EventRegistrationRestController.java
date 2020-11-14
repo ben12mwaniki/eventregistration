@@ -31,17 +31,18 @@ public class EventRegistrationRestController {
 	@Autowired
 	private EventRegistrationService service;
 	
+	@PostMapping(value = { "/person/{name}", "/person/{name}/" })
+	public PersonDto createPerson(@PathVariable("name") String name) throws IllegalArgumentException {
+		Person person = service.createPerson(name);
+		return convertToDto(person);
+	}
 	
 	@GetMapping(value = { "/persons", "/persons/" })
 	public List<PersonDto> getAllPersons() {
 		return service.getAllPersons().stream().map(p -> convertToDto(p)).collect(Collectors.toList());
 	}
 
-	@PostMapping(value = { "/persons/{name}", "/persons/{name}/" })
-	public PersonDto createPerson(@PathVariable("name") String name) throws IllegalArgumentException {
-		Person person = service.createPerson(name);
-		return convertToDto(person);
-	}
+	
 	@PostMapping(value = { "/events/{name}", "/events/{name}/" })
 	public EventDto createEvent(@PathVariable("name") String name, @RequestParam Date date,
 	@RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.TIME, pattern = "HH:mm") LocalTime startTime,
