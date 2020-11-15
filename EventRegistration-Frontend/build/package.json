@@ -7,12 +7,14 @@
   "scripts": {
     "dev": "node build/dev-server.js",
     "prestart": "next build",
-    "start": "next start -p ${PORT}",
+    "start": "NODE_ENV=production node server.js",
     
     "build": "node build/build.js",
     "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
     "e2e": "node test/e2e/runner.js",
-    "test": "npm run unit && npm run e2e"
+    "test": "npm run unit && npm run e2e",
+    "heroku-postbuild": "next build"
+
   },
   "dependencies": {
     "axios": "^0.21.0",
