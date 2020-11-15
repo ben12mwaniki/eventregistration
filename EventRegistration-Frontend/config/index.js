@@ -6,12 +6,12 @@ module.exports = {
     env: require('./prod.env'),
     host: 'eventregistration-frontend-123.herokuapp.com',
     port: 443,
-    backendHost: 'eventregistration-backend-123.herokuapp.com',
-    backendPort: 443,
+    backendHost: 'ec2-3-95-87-221.compute-1.amazonaws.com',
+    backendPort: 5432,
     index: path.resolve(__dirname, '../dist/index.html'),
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
-    assetsPublicPath: '/',
+    assetsPublicPath: '',
     productionSourceMap: true,
     // Gzip off by default as many popular static hosts such as
     // Surge or Netlify already gzip all static assets for you.
